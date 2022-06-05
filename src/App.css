@@ -1,38 +1,754 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  background: rgba(221, 243, 227, 0.39);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 65px;
+  background: white;
+  padding: 6px 4px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .logo_content .logo {
+  color: grey;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+  margin-top: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sidebar .logo_content .logo .logo_name img {
+  width: 80%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.sidebar ul {
+  margin: 10px auto auto auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sidebar ul li {
+  list-style: none;
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin: 0 5px;
+  list-style: none;
+  line-height: 50px;
+  border-radius: 12px;
+}
+
+.sidebar ul li a {
+  color: rgb(167, 162, 162);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+.sidebar ul li a:hover {
+  color: black;
+  background: rgba(221, 243, 227, 0.39);
+  border-left: 3px solid rgb(68, 207, 110);
+}
+
+.sidebar ul li .active {
+  color: black;
+  background: rgba(221, 243, 227, 0.39);
+  border-left: 3px solid rgb(68, 207, 110);
+}
+
+.sidebar ul li a i {
+  height: 50px;
+  min-width: 50px;
+  border-radius: 12px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar .leftbar {
+  display: flex;
+}
+
+.navbar .leftbar h1 {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.navbar .leftbar .anchor {
+  color: grey;
+  margin-right: 5px;
+}
+
+.navbar .rightbar {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .rightbar .tools {
+  margin-right: 30px;
+}
+
+.navbar .rightbar .tools i {
+  margin-right: 20px;
+}
+
+.navbar .rightbar .profile img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.navbar .rightbar .profile {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .rightbar .profile h3 {
+  font-size: 12px;
+}
+
+.content {
+  margin-left: 100px;
+  margin-right: 40px;
+  margin-top: 20px;
+}
+
+.info_card {
+  background: white;
+  border-radius: 8px;
+  width: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-top: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.info_card .info_comp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.info_card .info_comp .name_comp {
+  font-size: 12px;
+  font-weight: bolder;
+  margin-bottom: 8px;
+}
+
+.info_card .info_comp span {
+  font-size: 10px;
+  color: grey;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+.info_card .info_comp span a {
+  color: rgb(68, 207, 110);
+  font-size: 11px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.info_card .profile_comp {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+}
+
+.info_card .profile_comp h3 {
+  font-size: 12px;
+  color: rgb(173, 166, 166);
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.info_card .photo_comp {
+  text-align: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  width: 100%;
+  height: 80px;
+  margin-bottom: 50px;
+}
+
+.info_card .photo_comp img {
+  border-radius: 50%;
+  width: 40%;
+  margin-top: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.info_card .profile_comp span {
+  font-size: 10px;
+  color: grey;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.info_card .profile_comp .status {
+  font-size: 13px;
+  color: green;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.info_card .profile_comp a {
+  color: rgb(68, 207, 110);
+  font-size: 10px;
+  text-decoration: underline;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.info_card .profile_comp .phone {
+  font-size: 12px;
+  color: rgb(68, 207, 110);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.info_card .profile_comp a i,
+.info_card .profile_comp .phone i {
+  margin-right: 5px;
+}
+
+.info_card .info_comp span a i {
+  margin-right: 5px;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 30px;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggler {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  background-color: #4c9c1d;
+}
+
+.toggler::before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  bottom: 4px;
+  border-radius: 34px;
+  background: #ffffff;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .toggler {
+  background-color: #4c9c1d;
+}
+
+input:focus + .toggler {
+  box-shadow: 0 0 1px #161616;
+}
+
+input:checked + .toggler::before {
+  -webkit-transform: translateX(28px);
+  -ms-transform: translateX(28px);
+  transform: translateX(15px);
+}
+
+.toggler.round {
+  border-radius: 34px;
+}
+
+.info_card .profile_comp .toggle-status {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
+}
+
+.rightBox {
+  margin-top: 20px;
+  width: 100%;
+  margin-left: 20px;
+}
+
+.location_card {
+  background: white;
+  border-radius: 8px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.content_loc {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.location_card .nav_loc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.location_card .nav_loc h1 {
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.location_card .nav_loc a {
+  text-decoration: none;
+}
+
+.location_card .nav_loc a h2 {
+  font-size: 14px;
+  color: rgb(68, 207, 110);
+  font-weight: bolder;
+}
+
+.content_loc .induk,
+.content_loc .lokasi,
+.content_loc .lokasi-2 {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.induk {
+  background: rgb(79, 143, 79);
+  border-radius: 8px;
+  padding: 10px 15px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.lokasi {
+  background: rgb(99, 175, 99);
+  border-radius: 8px;
+  padding: 10px 15px;
+  color: white;
+  text-align: right;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.lokasi-2 {
+  background: rgb(117, 204, 117);
+  border-radius: 8px;
+  padding: 10px 15px;
+  color: white;
+  text-align: right;
+}
+
+.content_loc .induk i,
+.content_loc .lokasi i,
+.content_loc .lokasi-2 i {
+  font-size: 35px;
+}
+
+.content_loc .induk .info,
+.content_loc .lokasi .info,
+.content_loc .lokasi-2 .info {
+  font-size: 12px;
+}
+
+.content_loc .induk .info h3,
+.content_loc .lokasi h3,
+.content_loc .lokasi-2 h3 {
+  font-weight: lighter;
+}
+
+.account_bank {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  margin-top: 20px;
+  background: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.account_bank .nav_bank {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.account_bank .nav_bank h1 {
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.account_bank .nav_bank a {
+  background: rgb(28, 141, 62);
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  color: white;
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: normal;
+}
+
+.account_bank .list_bank .bank {
+  display: flex;
+}
+
+.account_bank .list_bank .bank img {
+  width: 80px;
+  height: 50px;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.account_bank .list_bank .bank .info_bank {
+  width: 100%;
+}
+
+.account_bank .list_bank .bank .info_bank .name_bank {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.account_bank .list_bank .bank .info_bank .name_bank h1 {
+  font-size: 12px;
+  font-weight: bolder;
+}
+
+.account_bank .list_bank .bank .info_bank .name_bank i {
+  margin-left: 10px;
+}
+
+.account_bank .list_bank .bank .info_bank .number {
+  font-size: 12px;
+  font-weight: lighter;
+}
+
+.bx-pencil {
+  color: green;
+}
+
+.bx-trash {
+  color: rgb(243, 73, 73);
+}
+
+.relation_card {
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.relation_card .nav_rel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.relation_card .nav_rel h1 {
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.relation_card .nav_rel a {
+  text-decoration: none;
+}
+
+.relation_card .nav_rel a h2 {
+  font-size: 14px;
+  color: rgb(68, 207, 110);
+  font-weight: bolder;
+}
+
+.relation_card .content_rel {
+  display: flex;
+  flex-direction: column;
+}
+
+.relation_card .content_rel .memiliki,
+.relation_card .content_rel .menggunakan,
+.relation_card .content_rel .meminjam {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.relation_card .content_rel .memiliki i,
+.relation_card .content_rel .menggunakan i,
+.relation_card .content_rel .meminjam i {
+  font-size: 30px;
+}
+
+.relation_card .content_rel .memiliki .info_share,
+.relation_card .content_rel .menggunakan .info_share,
+.relation_card .content_rel .meminjam .info_share {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.relation_card .content_rel .memiliki .info_share h1,
+.relation_card .content_rel .menggunakan .info_share h1,
+.relation_card .content_rel .meminjam .info_share h1 {
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.relation_card .content_rel .memiliki .info_share h3,
+.relation_card .content_rel .menggunakan .info_share h3,
+.relation_card .content_rel .meminjam .info_share h3 {
+  font-size: 12px;
+  color: grey;
+  font-weight: lighter;
+}
+
+.leftBox {
+  width: 50%;
+}
+
+.activity_card {
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 50%;
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.activity_card h1 {
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.activity_card .content_act {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity_card .content_act .act {
+  margin-top: 40px;
+}
+
+.activity_card .content_act .act h2 {
+  font-size: 14px;
+  font-weight: bolder;
+  color: gray;
+}
+
+.activity_card .content_act .act p {
+  font-size: 12px;
+  color: lightgrey;
+  font-weight: lighter;
+  margin-top: 10px;
+}
+
+.Box {
+  display: flex;
+  width: 100%;
+}
+
+@media screen and (max-width: 670px) {
+  .content {
+    margin-left: 80px;
+    margin-right: 20px;
+    margin-top: 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .navbar .leftbar {
+    display: block;
+  }
+
+  .navbar .leftbar h1 {
+    font-size: 10px;
+    font-weight: bold;
+  }
+
+  .navbar .rightbar .tools {
+    margin-right: 8px;
+  }
+
+  .navbar .rightbar .tools i {
+    margin-right: 8px;
+  }
+
+  .navbar .rightbar .profile h3 {
+    font-size: 10px;
+  }
+
+  .info_card {
+    background: white;
+    border-radius: 8px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+  }
+
+  .relation_card {
+    width: 100%;
+  }
+
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .rightBox {
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  .location_card {
+    width: 100%;
+  }
+
+  .content_loc {
+    flex-direction: column;
+  }
+
+  .leftBox {
+    width: 100%;
+  }
+
+  .Box {
+    flex-direction: column;
+  }
+
+  .activity_card {
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  .content_loc .lokasi,
+  .content_loc .lokasi-2 {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (min-width: 671px) and (max-width: 1000px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navbar .leftbar {
+    display: flex;
+  }
+
+  .navbar .leftbar h1 {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .navbar .rightbar .tools {
+    margin-right: 20px;
+  }
+
+  .navbar .rightbar .tools i {
+    margin-right: 10px;
+  }
+
+  .navbar .rightbar .profile h3 {
+    font-size: 11px;
+  }
+
+  .info_card {
+    background: white;
+    border-radius: 8px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .account_bank {
+    width: 100%;
+  }
+
+  .relation_card {
+    width: 100%;
+  }
+
+  .activity_card {
+    margin-left: 20px;
+  }
+
+  .sidebar ul li a i {
+    height: 30px;
+    min-width: 40px;
+    border-radius: 12px;
+    line-height: 30px;
+    text-align: center;
+  }
+
+  .account_bank .nav_bank a {
+    font-size: 8px;
+  }
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1300px) {
+  .info_card {
+    background: white;
+    border-radius: 8px;
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .activity_card {
+    margin-left: 20px;
   }
 }
